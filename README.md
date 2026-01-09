@@ -25,7 +25,7 @@ Can be extended for scientific operations like square root, percentages, or memo
 
 Clone the repository:
 
-git clone https://github.com/yourusername/calculator-app.git
+git clone https://github.com/Anuj-789/Calculator-App.git
 
 
 Open index.html in your browser.
