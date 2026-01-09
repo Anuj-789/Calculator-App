@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Full Calculator</title>
+  <style>
+    body {
+      background: #e0f0ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+
+    .calculator {
+      background: #007bff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      width: 270px;
+    }
+
+    .display {
+      background: white;
+      color: #333;
+      font-size: 32px;
+      text-align: right;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      padding: 15px;
+      font-size: 20px;
+      border: none;
+      border-radius: 8px;
+      background: #0056b3;
+      color: white;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #003d80;
+    }
+
+    .operator {
+      background: #28a745;
+    }
+
+    .operator:hover {
+      background: #1e7e34;
+    }
+
+    .equal {
+      background: #ffc107;
+      grid-column: span 2;
+    }
+
+    .equal:hover {
+      background: #e0a800;
+    }
+
+    .clear {
+      background: #dc3545;
+      grid-column: span 2;
+    }
+
+    .clear:hover {
+      background: #c82333;
+    }
+  </style>
+</head>
+
+<body><div>
+  <h3 style="font-size: 25px;color:#003d80"><marquee direction="right">Made by Anuj Kumar</marquee></h3>
+  
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button class="operator" onclick="press('/')">÷</button>
+
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button class="operator" onclick="press('*')">×</button>
+
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+      <button class="operator" onclick="press('-')">−</button>
+
+      <button onclick="press('0')">0</button>
+      <button class="operator" onclick="press('+')">+</button>
+      
+      <button class="equal" onclick="calculate()">=</button>
+       <button class="clear" onclick="clearDisplay()">AC</button>
+      
+     
+    </div>
+  </div>
+
+  <script>
+    let input = '';
+
+    function press(value) {
+      input += value;
+      document.getElementById('display').textContent = input;
+    }
+
+    function calculate() {
+      try {
+        const result = eval(input);
+        document.getElementById('display').textContent = result;
+        input = result.toString();
+      } catch {
+        document.getElementById('display').textContent = 'Error';
+        input = '';
+      }
+    }
+
+    function clearDisplay() {
+      input = '';
+      document.getElementById('display').textContent = '0';
+    }
+  </script>
+
+</body>
+</html>
